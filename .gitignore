@@ -1,0 +1,9 @@
+*.exe
+snake-curses
+
+.vscode/
+
+*.o
+*.obj
+*.dll
+*.so
