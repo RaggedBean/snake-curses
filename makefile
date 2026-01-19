@@ -1,7 +1,7 @@
 all: snake-curses
 
-SRC = src/main.cpp
-DEPS = src/window.h
+SRC = src/*
+DEPS = src/*
 
 snake-curses: $(SRC) $(DEPS)
 	g++ $(SRC) -lncurses -o snake-curses
