@@ -3,10 +3,6 @@
 class Drawable
 {
 public:
-    Drawable() {
-        y = x = 0;
-        icon = ' ';
-    }
 
     Drawable(int y, int x, char ch) {
         this->y = y;
