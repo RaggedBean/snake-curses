@@ -20,5 +20,9 @@ public:
 
     }
     
+    enum Colors {
+        FG = COLOR_YELLOW,
+        BG = COLOR_GREEN
+    };
 };
 

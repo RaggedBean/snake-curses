@@ -13,12 +13,21 @@ private:
     char icon;
 public:
     Fruit(int y, int x) : Drawable(x, y, 'o') {
-        
+
     }
 
     ~Fruit() {
 
     }
+
+    void setColor(int fg, int bg) {
+
+    }
+
+    enum Colors {
+        FG = COLOR_RED,
+        BG = 0
+    };
     
 };
 

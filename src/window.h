@@ -44,6 +44,7 @@ public:
         mvwaddch(window, y, x, ch);
     }
     
+    WINDOW* get() {  return window; }
 
     int getInnerMinY() const { return 1; }
     int getInnerMaxY() const { return height - 2; }

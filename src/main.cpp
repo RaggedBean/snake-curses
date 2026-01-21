@@ -39,7 +39,7 @@ int main(int argc, char **argv)
         game.update();
 
         // display
-        game.draw();
+        game.redraw();
     }
     
 

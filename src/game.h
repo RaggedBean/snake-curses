@@ -25,11 +25,21 @@ public:
     {
         //win.add(Drawable(3, 3, '@'));
         
-        win.add(*fruit);
+        // snake
+        init_pair(SNAKE, snake->FG, snake->BG);
+        wattron(win.get(), COLOR_PAIR(SNAKE));
         win.add(*snake);
+        wattroff(win.get(), COLOR_PAIR(SNAKE));
+
+        // fruit
+        init_pair(FRUIT, fruit->FG, fruit->BG);
+        wattron(win.get(), COLOR_PAIR(FRUIT));
+        win.add(*fruit);
+        wattroff(win.get(), COLOR_PAIR(FRUIT));
+        
     }
 
-    void draw()
+    void redraw()
     {
         win.refresh();
 
@@ -45,4 +55,10 @@ private:
     Window win;
     Fruit* fruit;
     Snake* snake;
+
+    enum ColorsPairs : short {
+        EMPTY = 0,
+        SNAKE = 1,
+        FRUIT = 2,
+    };
 };
