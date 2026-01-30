@@ -1,6 +1,6 @@
 all: snake-curses
 
-SRC = src/*
+SRC = src/*.cpp
 DEPS = src/*
 
 snake-curses: $(SRC) $(DEPS)

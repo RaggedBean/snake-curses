@@ -40,6 +40,8 @@ int main(int argc, char **argv)
 
         // display
         game.redraw();
+
+        napms(150);   // Game speed
     }
     
 

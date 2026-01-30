@@ -20,10 +20,6 @@ public:
 
     }
 
-    void setColor(int fg, int bg) {
-
-    }
-
     enum Colors {
         FG = COLOR_RED,
         BG = 0

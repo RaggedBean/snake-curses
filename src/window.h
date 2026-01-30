@@ -18,10 +18,11 @@ public:
         int xMax, yMax;
         getmaxyx(stdscr, yMax, xMax);
         window = newwin(height, width, (yMax / 2) - (height / 2), (xMax / 2) - (width / 2));
+        wtimeout(window, 1000);
 
         clear();
         drawBorder();
-        refresh();  
+        refresh();
     }
 
     void clear() {
@@ -42,6 +43,10 @@ public:
 
     void addAt(int y, int x, char ch) {
         mvwaddch(window, y, x, ch);
+    }
+
+    void remove(int y, int x) {
+        mvwaddch(window, y, x, ' ');
     }
     
     WINDOW* get() {  return window; }
