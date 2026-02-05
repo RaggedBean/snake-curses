@@ -18,6 +18,9 @@ public:
     {
         srand(time(NULL)); //time
 
+        keypad(win.get(), TRUE);
+        nodelay(win.get(), TRUE);
+
         score = 0;
         fruit = new Fruit(win.getRandomY(), win.getRandomX());
         snake = new Snake();
@@ -27,12 +30,17 @@ public:
 
 
     void handleInput()
-    {
-        keypad(win.get(), TRUE);
-        nodelay(win.get(), TRUE);
-    
-        int c = wgetch(win.get());
-        switch(c)
+    {  
+        chtype ch = ERR;
+        chtype tmp;
+
+        while ((tmp = wgetch(win.get())) != ERR) {
+            ch = tmp;
+        }
+
+        if (ch == ERR) return;
+
+        switch(ch)
         {
             case KEY_UP:
             case 'w':
@@ -90,10 +98,30 @@ public:
         // FRUIT
 
         if (snake->getHead().getX() == fruit->getX() && snake->getHead().getY() == fruit->getY()) {
+            // add segment
             snake->addPart(snake->getTail().getY(), snake->getTail().getX());
             score += 1;
-            fruit->setY(win.getRandomY());
-            fruit->setX(win.getRandomX());
+
+            // spawn new fruit
+            int fy, fx;
+            bool isFree;
+
+            // generate new fruit pos while pos is on snake body
+            do { 
+                fy = win.getRandomY();
+                fx = win.getRandomX();
+                isFree = true;
+
+                for (SnakePart& part : snake->getBody()) {
+                    if (part.getY() == fy && part.getX() == fx) {
+                        isFree = false;
+                        break;
+                    }
+                }
+            } while (!isFree);
+
+            fruit->setY(fy);
+            fruit->setX(fx);
         } 
 
         // display
