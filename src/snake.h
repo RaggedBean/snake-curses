@@ -105,17 +105,10 @@ public:
     std::vector<SnakePart>& getBody() { return snakeParts; }
 
     int getSize() { return size; }
-    void setSize(int s) { size += s; }
+    void setSize(int s) { size = s; }
 
     short getDirection() { return currentDirection; }
     void setDirection(short dir) { currentDirection = dir; }
-
-
-
-enum Color {
-    FG = COLOR_YELLOW,
-    BG = COLOR_GREEN
-};
 
 
 };

@@ -31,7 +31,7 @@ int main(int argc, char **argv)
 
     Game game = Game(HEIGHT, WIDTH);
 
-    while (!game.isOver()) {
+    while (game.isRunning()) {
         // handle input
         game.handleInput();
         
@@ -48,5 +48,8 @@ int main(int argc, char **argv)
     getch();
 
     endwin(); // End ncurses
+
+    std::cout << "game over" << std::endl;
+    std::cout << "Your score: " << game.getScore() << std::endl;
     return 0;
 }
